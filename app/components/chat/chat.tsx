@@ -217,8 +217,8 @@ export function Chat() {
               },
             }}
           >
-            <h1 className="mb-6 text-3xl font-medium tracking-tight">
-              What&apos;s on your mind?
+            <h1 className="mb-6 text-center text-3xl font-medium tracking-tight">
+              Welche rechtlichen Fragen haben Sie?
             </h1>
           </motion.div>
         ) : (

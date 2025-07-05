@@ -196,7 +196,7 @@ export async function createNewChat(
       projectId?: string
     } = {
       userId,
-      title: title || "New Chat",
+      title: title || "Neuer Chat",
       model: model || MODEL_DEFAULT,
       isAuthenticated,
     }
@@ -231,7 +231,7 @@ export async function createNewChat(
     await writeToIndexedDB("chats", chat)
     return chat
   } catch (error) {
-    console.error("Error creating new chat:", error)
+    console.error("Error creating Neuer Chat:", error)
     throw error
   }
 }

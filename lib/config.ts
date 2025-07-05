@@ -1,11 +1,11 @@
 import {
-  BookOpenText,
+  ListBullets,
+  HandsClapping,
+  Palette,
+  MagnifyingGlass,
+  StarFour,
   Brain,
-  Code,
-  Lightbulb,
-  Notepad,
-  PaintBrush,
-  Sparkle,
+  Student,
 } from "@phosphor-icons/react/dist/ssr"
 
 export const NON_AUTH_DAILY_MESSAGE_LIMIT = 5
@@ -14,7 +14,7 @@ export const REMAINING_QUERY_ALERT_THRESHOLD = 2
 export const DAILY_FILE_UPLOAD_LIMIT = 5
 export const DAILY_LIMIT_PRO_MODELS = 500
 
-export const NON_AUTH_ALLOWED_MODELS = ["gpt-4.1-nano"]
+export const NON_AUTH_ALLOWED_MODELS = ["gemini-2.0-flash-001"]
 
 export const FREE_MODELS_IDS = [
   "openrouter:deepseek/deepseek-r1:free",
@@ -24,98 +24,105 @@ export const FREE_MODELS_IDS = [
   "gpt-4.1-nano",
 ]
 
-export const MODEL_DEFAULT = "gpt-4.1-nano"
+export const MODEL_DEFAULT = "gemini-2.0-flash-001"
 
-export const APP_NAME = "Zola"
-export const APP_DOMAIN = "https://zola.chat"
+export const APP_NAME = "justus"
+export const APP_DOMAIN = "https://justus.chat"
 
 export const SUGGESTIONS = [
   {
-    label: "Summary",
-    highlight: "Summarize",
-    prompt: `Summarize`,
+    label: "Zusammenfassung",
+    highlight: "Zusammenfassen",
+    prompt: `Zusammenfassen`,
     items: [
-      "Summarize the French Revolution",
-      "Summarize the plot of Inception",
-      "Summarize World War II in 5 sentences",
-      "Summarize the benefits of meditation",
+      "Fasse einen wichtigen Rechtsfall zusammen",
+      "Fasse die Verfassung zusammen",
+      "Fasse die Phasen eines Gerichtsverfahrens zusammen",
+      "Fasse die Rechte des Angeklagten nach dem Gesetz zusammen",
     ],
-    icon: Notepad,
+    icon: ListBullets,
   },
   {
-    label: "Code",
-    highlight: "Help me",
-    prompt: `Help me`,
+    label: "Rechtliche Hilfe",
+    highlight: "Hilf mir",
+    prompt: `Hilf mir`,
     items: [
-      "Help me write a function to reverse a string in JavaScript",
-      "Help me create a responsive navbar in HTML/CSS",
-      "Help me write a SQL query to find duplicate emails",
-      "Help me convert this Python function to JavaScript",
+      "Hilf mir, eine Klage zu schreiben",
+      "Hilf mir, einen Mietvertrag zu prüfen",
+      "Hilf mir, eine Verteidigungsschrift zu verfassen",
+      "Hilf mir, die notwendigen Dokumente für eine Scheidung zu sammeln",
     ],
-    icon: Code,
+    icon: HandsClapping,
   },
   {
-    label: "Design",
+    label: "Rechtsdesign",
     highlight: "Design",
     prompt: `Design`,
     items: [
-      "Design a color palette for a tech blog",
-      "Design a UX checklist for mobile apps",
-      "Design 5 great font pairings for a landing page",
-      "Design better CTAs with useful tips",
+      "Gestalte eine Broschüre zur Aufklärung über Bürgerrechte",
+      "Gestalte eine Infografik über die Schritte zur Unternehmensregistrierung",
+      "Gestalte ein Poster zur Information über die Rechte von Arbeitnehmern",
+      "Gestalte eine einfache Website zur Bereitstellung von Online-Rechtsberatung",
     ],
-    icon: PaintBrush,
+    icon: Palette,
   },
   {
-    label: "Research",
-    highlight: "Research",
-    prompt: `Research`,
+    label: "Rechtsrecherche",
+    highlight: "Recherchieren",
+    prompt: `Recherchieren`,
     items: [
-      "Research the pros and cons of remote work",
-      "Research the differences between Apple Vision Pro and Meta Quest",
-      "Research best practices for password security",
-      "Research the latest trends in renewable energy",
+      "Recherchiere die neuesten Änderungen des islamischen Strafgesetzbuchs",
+      "Recherchiere die Rechtsprechung in Immobiliensachen",
+      "Recherchiere die Gesetze in Bezug auf Erbschaft und Testament",
+      "Recherchiere die Rechte der Verbraucher im Iran",
     ],
-    icon: BookOpenText,
+    icon: MagnifyingGlass,
   },
   {
-    label: "Get inspired",
-    highlight: "Inspire me",
-    prompt: `Inspire me`,
+    label: "Inspiration holen",
+    highlight: "Inspiriere mich",
+    prompt: `Inspiriere mich`,
     items: [
-      "Inspire me with a beautiful quote about creativity",
-      "Inspire me with a writing prompt about solitude",
-      "Inspire me with a poetic way to start a newsletter",
-      "Inspire me by describing a peaceful morning in nature",
+      "Gib mir eine Idee für eine Kampagne zur Rechtsaufklärung",
+      "Gib mir eine Idee für einen interessanten juristischen Artikel",
+      "Gib mir eine Idee für einen Rechtspodcast",
+      "Gib mir eine Idee für einen Online-Rechtswettbewerb",
     ],
-    icon: Sparkle,
+    icon: StarFour,
   },
   {
-    label: "Think deeply",
-    highlight: "Reflect on",
-    prompt: `Reflect on`,
+    label: "Tiefes Nachdenken",
+    highlight: "Nachdenken",
+    prompt: `Nachdenken`,
     items: [
-      "Reflect on why we fear uncertainty",
-      "Reflect on what makes a conversation meaningful",
-      "Reflect on the concept of time in a simple way",
-      "Reflect on what it means to live intentionally",
+      "Denke über Gerechtigkeit und Fairness im Gesetz nach",
+      "Denke über die Rolle des Anwalts in der Gesellschaft nach",
+      "Denke über Berufsethik in der Anwaltschaft nach",
+      "Denke über den Einfluss des Gesetzes auf das tägliche Leben nach",
     ],
     icon: Brain,
   },
   {
-    label: "Learn gently",
-    highlight: "Explain",
-    prompt: `Explain`,
+    label: "Sanftes Lernen",
+    highlight: "Erklären",
+    prompt: `Erklären`,
     items: [
-      "Explain quantum physics like I'm 10",
-      "Explain stoicism in simple terms",
-      "Explain how a neural network works",
-      "Explain the difference between AI and AGI",
+      "Erkläre das Scheckgesetz in einfachen Worten",
+      "Erkläre das Konzept von Verbrechen und Strafe in einfachen Worten",
+      "Erkläre die Schritte zum Kauf und Verkauf von Immobilien in einfachen Worten",
+      "Erkläre den Unterschied zwischen Zivil- und Strafrecht in einfachen Worten",
     ],
-    icon: Lightbulb,
+    icon: Student,
   },
+
 ]
 
-export const SYSTEM_PROMPT_DEFAULT = `You are Zola, a thoughtful and clear assistant. Your tone is calm, minimal, and human. You write with intention—never too much, never too little. You avoid clichés, speak simply, and offer helpful, grounded answers. When needed, you ask good questions. You don't try to impress—you aim to clarify. You may use metaphors if they bring clarity, but you stay sharp and sincere. You're here to help the user think clearly and move forward, not to overwhelm or overperform.`
+export const SYSTEM_PROMPT_DEFAULT = `You are Justus, a precise, transparent, and reliable legal assistant. Your tone is professional, calm, minimal, and human. Instead of using complex or clichéd language, you speak clearly, and your focus is on explaining legal issues in simple, understandable terms.
+
+You write with the intention of helping – not to impress, but to enlighten. Instead of judging or pressuring, you help the user understand their situation and make informed decisions.
+
+You are precise, logical, and structured in your responses. If necessary, you ask clear, relevant questions to better clarify the issue. You use precise examples or metaphors to clarify when needed, but you always remain honest and realistic.
+
+You are there for the user – not as a formal lawyer, but as a knowledgeable assistant to help them think clearly legally, analyze the situation, and move forward with confidence.`
 
 export const MESSAGE_MAX_LENGTH = 10000

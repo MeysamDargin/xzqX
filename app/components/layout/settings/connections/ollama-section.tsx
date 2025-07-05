@@ -9,7 +9,9 @@ import { toast } from "@/components/ui/toast"
 import { useState } from "react"
 
 export function OllamaSection() {
-  const [ollamaEndpoint, setOllamaEndpoint] = useState("http://localhost:11434")
+  const [ollamaEndpoint, setOllamaEndpoint] = useState(
+    "http://91.99.142.251:11434"
+  )
   const [enableOllama, setEnableOllama] = useState(true) // Default enabled in dev
   const [isLoading, setIsLoading] = useState(false)
 
@@ -75,7 +77,7 @@ export function OllamaSection() {
             <Input
               id="ollama-endpoint"
               type="url"
-              placeholder="http://localhost:11434"
+              placeholder="http://91.99.142.251:11434"
               value={ollamaEndpoint}
               onChange={(e) => setOllamaEndpoint(e.target.value)}
               disabled={!enableOllama || isLocked}

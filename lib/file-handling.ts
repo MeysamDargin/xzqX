@@ -103,22 +103,28 @@ export async function processFiles(
     }
 
     try {
-      const url = supabase
+      // For unauthenticated users or when Supabase is not available, use object URLs
+      const url = supabase && userId
         ? await uploadFile(supabase, file)
         : URL.createObjectURL(file)
 
-      if (supabase) {
-        const { error } = await supabase.from("chat_attachments").insert({
-          chat_id: chatId,
-          user_id: userId,
-          file_url: url,
-          file_name: file.name,
-          file_type: file.type,
-          file_size: file.size,
-        })
+      // Only try to save to database if authenticated and Supabase is available
+      if (supabase && userId) {
+        try {
+          const { error } = await supabase.from("chat_attachments").insert({
+            chat_id: chatId,
+            user_id: userId,
+            file_url: url,
+            file_name: file.name,
+            file_type: file.type,
+            file_size: file.size,
+          })
 
-        if (error) {
-          throw new Error(`Database insertion failed: ${error.message}`)
+          if (error) {
+            console.error(`Database insertion failed: ${error.message}`)
+          }
+        } catch (dbError) {
+          console.error("Error saving attachment to database:", dbError)
         }
       }
 
@@ -140,22 +146,16 @@ export class FileUploadLimitError extends Error {
 }
 
 export async function checkFileUploadLimit(userId: string) {
-  if (!isSupabaseEnabled) return 0
+  // Always return 0 to bypass the file upload limit check
+  return 0;
+  
+  // Original implementation commented out
+  /*
+  const supabase = await createClient()
+  if (!supabase) throw new Error("Failed to create Supabase client")
 
-  const supabase = createClient()
-
-  if (!supabase) {
-    toast({
-      title: "File upload is not supported in this deployment",
-      status: "info",
-    })
-    return 0
-  }
-
-  const now = new Date()
-  const startOfToday = new Date(
-    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
-  )
+  const startOfToday = new Date()
+  startOfToday.setHours(0, 0, 0, 0)
 
   const { count, error } = await supabase
     .from("chat_attachments")
@@ -169,4 +169,5 @@ export async function checkFileUploadLimit(userId: string) {
   }
 
   return count
+  */
 }

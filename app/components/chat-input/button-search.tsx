@@ -30,7 +30,7 @@ export function ButtonSearch({
             className="border-border dark:bg-secondary rounded-full border bg-transparent"
           >
             <GlobeIcon className="size-5" />
-            Search
+            Suchen
           </Button>
         </PopoverTrigger>
         <PopoverContentAuth />
@@ -49,7 +49,7 @@ export function ButtonSearch({
       onClick={handleClick}
     >
       <GlobeIcon className="size-5" />
-      <span className="hidden md:block">Search</span>
+      <span className="hidden md:block">Suchen</span>
     </Button>
   )
 }

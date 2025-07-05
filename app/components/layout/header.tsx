@@ -33,14 +33,13 @@ export function Header({ hasSidebar }: { hasSidebar: boolean }) {
                 href="/"
                 className="pointer-events-auto inline-flex items-center text-xl font-medium tracking-tight"
               >
-                <ZolaIcon className="mr-1 size-4" />
                 {APP_NAME}
               </Link>
               {hasSidebar && isMobile && <HeaderSidebarTrigger />}
             </div>
           </div>
           <div />
-          {!isLoggedIn ? (
+          {/* {!isLoggedIn ? (
             <div className="pointer-events-auto flex flex-1 items-center justify-end gap-4">
               <AppInfoTrigger
                 trigger={
@@ -68,7 +67,7 @@ export function Header({ hasSidebar }: { hasSidebar: boolean }) {
               {!hasSidebar && <HistoryTrigger hasSidebar={hasSidebar} />}
               <UserMenu />
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </header>

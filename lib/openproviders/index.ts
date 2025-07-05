@@ -47,13 +47,13 @@ export type OpenProvidersOptions<T extends SupportedModel> = ModelSettings<T>
 const getOllamaBaseURL = () => {
   if (typeof window !== "undefined") {
     // Client-side: use localhost
-    return "http://localhost:11434/v1"
+    return "http://91.99.142.251:11434/v1"
   }
 
   // Server-side: check environment variables
   return (
     process.env.OLLAMA_BASE_URL?.replace(/\/+$/, "") + "/v1" ||
-    "http://localhost:11434/v1"
+    "http://91.99.142.251:11434/v1"
   )
 }
 

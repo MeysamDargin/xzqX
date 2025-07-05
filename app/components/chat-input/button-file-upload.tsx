@@ -25,12 +25,14 @@ type ButtonFileUploadProps = {
   onFileUpload: (files: File[]) => void
   isUserAuthenticated: boolean
   model: string
+  className?: string
 }
 
 export function ButtonFileUpload({
   onFileUpload,
   isUserAuthenticated,
   model,
+  className,
 }: ButtonFileUploadProps) {
   if (!isSupabaseEnabled) {
     return null
@@ -47,7 +49,10 @@ export function ButtonFileUpload({
               <Button
                 size="sm"
                 variant="secondary"
-                className="border-border dark:bg-secondary size-9 rounded-full border bg-transparent"
+                className={cn(
+                  "border-border dark:bg-secondary h-9 rounded-full border bg-transparent",
+                  className
+                )}
                 type="button"
                 aria-label="Add files"
               >
@@ -68,35 +73,11 @@ export function ButtonFileUpload({
     )
   }
 
-  if (!isUserAuthenticated) {
-    return (
-      <Popover>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <PopoverTrigger asChild>
-              <Button
-                size="sm"
-                variant="secondary"
-                className="border-border dark:bg-secondary size-9 rounded-full border bg-transparent"
-                type="button"
-                aria-label="Add files"
-              >
-                <Paperclip className="size-4" />
-              </Button>
-            </PopoverTrigger>
-          </TooltipTrigger>
-          <TooltipContent>Add files</TooltipContent>
-        </Tooltip>
-        <PopoverContentAuth />
-      </Popover>
-    )
-  }
-
+  // Allow file uploads for all users, regardless of authentication status
   return (
     <FileUpload
       onFilesAdded={onFileUpload}
       multiple
-      disabled={!isUserAuthenticated}
       accept=".txt,.md,image/jpeg,image/png,image/gif,image/webp,image/svg,image/heic,image/heif"
     >
       <Tooltip>
@@ -106,11 +87,10 @@ export function ButtonFileUpload({
               size="sm"
               variant="secondary"
               className={cn(
-                "border-border dark:bg-secondary size-9 rounded-full border bg-transparent",
-                !isUserAuthenticated && "opacity-50"
+                "border-border dark:bg-secondary h-9 rounded-full border bg-transparent",
+                className
               )}
               type="button"
-              disabled={!isUserAuthenticated}
               aria-label="Add files"
             >
               <Paperclip className="size-4" />

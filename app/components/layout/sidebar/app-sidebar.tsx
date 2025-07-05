@@ -65,7 +65,7 @@ export function AppSidebar() {
             >
               <div className="flex items-center gap-2">
                 <NotePencilIcon size={20} />
-                New Chat
+                Neuer Chat
               </div>
               <div className="text-muted-foreground ml-auto text-xs opacity-0 duration-150 group-hover/new-chat:opacity-100">
                 ⌘⇧U
@@ -77,7 +77,7 @@ export function AppSidebar() {
               icon={<MagnifyingGlass size={24} className="mr-2" />}
               label={
                 <div className="flex w-full items-center gap-2">
-                  <span>Search</span>
+                  <span>Suchen</span>
                   <div className="text-muted-foreground ml-auto text-xs opacity-0 duration-150 group-hover/search:opacity-100">
                     ⌘+K
                   </div>
@@ -114,7 +114,7 @@ export function AppSidebar() {
           )}
         </ScrollArea>
       </SidebarContent>
-      <SidebarFooter className="mb-2 p-3">
+      {/* <SidebarFooter className="mb-2 p-3">
         <a
           href="https://github.com/ibelick/zola"
           className="hover:bg-muted flex items-center gap-2 rounded-md p-2"
@@ -133,7 +133,7 @@ export function AppSidebar() {
             </div>
           </div>
         </a>
-      </SidebarFooter>
+      </SidebarFooter> */}
     </Sidebar>
   )
 }

@@ -72,7 +72,7 @@ export function useModel({
         }
       } else if (user?.id) {
         // Authenticated user but no chat yet - just update local state
-        // The model will be used when creating a new chat
+        // The model will be used when creating a Neuer Chat
         setLocalSelectedModel(newModel)
       }
     },

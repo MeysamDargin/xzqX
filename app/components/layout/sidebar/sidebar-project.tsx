@@ -16,16 +16,26 @@ type Project = {
 export function SidebarProject() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
-  const { data: projects = [], isLoading } = useQuery<Project[]>({
+  const { data, isLoading } = useQuery<Project[]>({
     queryKey: ["projects"],
     queryFn: async () => {
-      const response = await fetch("/api/projects")
-      if (!response.ok) {
-        throw new Error("Failed to fetch projects")
+      try {
+        const response = await fetch("/api/projects")
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects")
+        }
+        const result = await response.json()
+        return Array.isArray(result) ? result : []
+      } catch (error) {
+        console.error("Error fetching projects:", error)
+        return []
       }
-      return response.json()
     },
+    initialData: [],
   })
+
+  // Ensure projects is always an array
+  const projects = Array.isArray(data) ? data : []
 
   return (
     <div className="mb-5">
@@ -36,7 +46,7 @@ export function SidebarProject() {
       >
         <div className="flex items-center gap-2">
           <FolderPlusIcon size={20} />
-          New project
+          Neues Projekt
         </div>
       </button>
 

@@ -25,7 +25,6 @@ export function Conversation({
 }: ConversationProps) {
   const initialMessageCount = useRef(messages.length)
 
-
   if (!messages || messages.length === 0)
     return <div className="h-full w-full"></div>
 

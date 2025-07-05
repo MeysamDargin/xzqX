@@ -26,12 +26,12 @@ interface OllamaListResponse {
 const getOllamaBaseURL = (): string => {
   if (typeof window !== "undefined") {
     // Client-side: use localhost
-    return "http://localhost:11434"
+    return "http://91.99.142.251:11434"
   }
 
   // Server-side: check environment variables
   return (
-    process.env.OLLAMA_BASE_URL?.replace(/\/+$/, "") || "http://localhost:11434"
+    process.env.OLLAMA_BASE_URL?.replace(/\/+$/, "") || "http://91.99.142.251:11434"
   )
 }
 

@@ -70,14 +70,14 @@ export function DialogCreateProject({
       <DialogContent>
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>Create New Project</DialogTitle>
+            <DialogTitle>Neues Projekt erstellen</DialogTitle>
             <DialogDescription>
-              Enter a name for your new project.
+              Geben Sie einen Namen für Ihr neues Projekt ein.
             </DialogDescription>
           </DialogHeader>
           <div className="py-4">
             <Input
-              placeholder="Project name"
+              placeholder="Projektname"
               value={projectName}
               onChange={(e) => setProjectName(e.target.value)}
               autoFocus

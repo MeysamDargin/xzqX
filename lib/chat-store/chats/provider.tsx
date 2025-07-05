@@ -129,7 +129,7 @@ export function ChatsProvider({
     const optimisticId = `optimistic-${Date.now().toString()}`
     const optimisticChat = {
       id: optimisticId,
-      title: title || "New Chat",
+      title: title || "Neuer Chat",
       created_at: new Date().toISOString(),
       model: model || MODEL_DEFAULT,
       system_prompt: systemPrompt || SYSTEM_PROMPT_DEFAULT,
